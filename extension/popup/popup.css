@@ -1,3 +1,10 @@
+/* ── Reset / base ────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   min-width: 320px;
@@ -11,27 +18,147 @@ main {
 }
 
 h1 {
-  margin: 0 0 8px;
+  margin: 0 0 12px;
   font-size: 18px;
 }
 
-p {
-  margin: 0 0 16px;
-  line-height: 1.5;
+/* ── Utility ────────────────────────────────────────────────────────── */
+.hidden {
+  display: none !important;
 }
 
+/* ── Auth section ────────────────────────────────────────────────────── */
+#auth-section {
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #d0dae3;
+}
+
+#logged-in {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+
+#user-urn {
+  color: #555;
+  word-break: break-all;
+}
+
+#logout-link {
+  color: #0a66c2;
+  text-decoration: none;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+#logout-link:hover {
+  text-decoration: underline;
+}
+
+/* ── Form fields ─────────────────────────────────────────────────────── */
+.field {
+  margin-bottom: 12px;
+}
+
+label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 4px;
+}
+
+input[type="url"],
+input[type="text"],
+input[type="datetime-local"],
+textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #b0bec5;
+  border-radius: 6px;
+  font-size: 13px;
+  font-family: inherit;
+  background: #fff;
+  color: #1f1f1f;
+  resize: vertical;
+}
+
+input[readonly] {
+  background: #eef2f5;
+  color: #555;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #0a66c2;
+  box-shadow: 0 0 0 2px rgba(10, 102, 194, 0.2);
+}
+
+/* ── Post-mode toggle ────────────────────────────────────────────────── */
+.toggle-field {
+  display: flex;
+  gap: 20px;
+}
+
+.toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.toggle-label input[type="radio"] {
+  width: auto;
+  accent-color: #0a66c2;
+  cursor: pointer;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────────────── */
 button {
   width: 100%;
   border: 0;
   border-radius: 6px;
-  padding: 12px 16px;
+  padding: 10px 16px;
   font-size: 14px;
   font-weight: 600;
   color: #fff;
   background: #0a66c2;
   cursor: pointer;
+  transition: background 0.15s;
 }
 
-button:hover {
+button:hover:not(:disabled) {
   background: #004182;
 }
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ── Status messages ─────────────────────────────────────────────────── */
+#status-msg {
+  margin-top: 12px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+#status-msg.success {
+  background: #e6f4ea;
+  color: #1e7e34;
+  border: 1px solid #a8d5b5;
+}
+
+#status-msg.error {
+  background: #fdecea;
+  color: #b71c1c;
+  border: 1px solid #f5c6c6;
+}
+
