@@ -1,0 +1,21 @@
+{
+  "name": "linkedin-post-extension",
+  "version": "1.0.0",
+  "description": "A Microsoft Edge extension, which enables quick posting to linkedin",
+  "scripts": {
+    "validate": "node ./scripts/validate-extension.mjs",
+    "package": "npm run validate && node ./scripts/package-extension.mjs",
+    "test": "npm run validate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KevinDMack/linkedin-post-extension.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KevinDMack/linkedin-post-extension/issues"
+  },
+  "homepage": "https://github.com/KevinDMack/linkedin-post-extension#readme"
+}
