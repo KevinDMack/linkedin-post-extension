@@ -9,11 +9,55 @@
   <body>
     <main>
       <h1>LinkedIn Post Extension</h1>
-      <p>
-        This scaffold gives you a popup, manifest, and background worker so you can keep building your posting workflow.
-      </p>
-      <button id="open-linkedin" type="button">Open LinkedIn feed</button>
+
+      <!-- Auth section -->
+      <section id="auth-section">
+        <div id="logged-out" class="hidden">
+          <button id="login-btn" type="button">Sign in with LinkedIn</button>
+        </div>
+        <div id="logged-in" class="hidden">
+          <span id="user-urn"></span>
+          <a href="#" id="logout-link">Sign out</a>
+        </div>
+      </section>
+
+      <!-- Post form (only shown when authenticated) -->
+      <form id="post-form" class="hidden">
+        <div class="field">
+          <label for="page-url">Page URL</label>
+          <input id="page-url" type="url" readonly>
+        </div>
+
+        <div class="field">
+          <label for="page-title">Page Title</label>
+          <input id="page-title" type="text" readonly>
+        </div>
+
+        <div class="field">
+          <label for="commentary">Commentary</label>
+          <textarea id="commentary" rows="4" placeholder="Add your thoughts…"></textarea>
+        </div>
+
+        <div class="field toggle-field">
+          <label class="toggle-label">
+            <input type="radio" name="post-mode" value="now" checked> Post Now
+          </label>
+          <label class="toggle-label">
+            <input type="radio" name="post-mode" value="schedule"> Schedule
+          </label>
+        </div>
+
+        <div id="schedule-field" class="field hidden">
+          <label for="schedule-time">Schedule Date &amp; Time</label>
+          <input id="schedule-time" type="datetime-local">
+        </div>
+
+        <button id="submit-btn" type="submit">Post</button>
+      </form>
+
+      <div id="status-msg" class="hidden"></div>
     </main>
-    <script src="popup.js"></script>
+    <script src="popup.js" type="module"></script>
   </body>
 </html>
+
